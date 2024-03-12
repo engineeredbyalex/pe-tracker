@@ -9,7 +9,7 @@ import { useRouter } from "next/router"
 // importing axios
 import axios from "axios"
 
-function RegisterPage() {
+function RegisterForm() {
     const { data: status, session } = useSession()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -84,4 +84,4 @@ function RegisterPage() {
 
 }
 
-export default RegisterPage
+export default RegisterForm
