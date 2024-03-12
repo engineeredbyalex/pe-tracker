@@ -7,7 +7,7 @@ import Link from "next/link"
 // importing router
 import { useRouter } from "next/router"
 
-function LoginPage() {
+function LoginForm() {
   const { data: status, session } = useSession()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -70,4 +70,4 @@ function LoginPage() {
 
 }
 
-export default LoginPage
+export default LoginForm

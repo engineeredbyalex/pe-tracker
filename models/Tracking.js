@@ -1,6 +1,7 @@
 import{model,models,Schema} from "mongoose"
 
 const TrackingSchema = new Schema({
+    userId:{type:String},
     // 
     flacidLenght:{type: Number},
     flacidGirth:{type: Number},
