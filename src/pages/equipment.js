@@ -14,10 +14,10 @@ export default function EquipmentPage() {
   
   return (
     <Layout>
-      <div className="flex flex-col gap-5 justify-start min-h-screen">
-        <div className="w-full text-center text-purple-500 border-b border-purple-700 py-3">
-          <h3 className="uppercase font-bold">Add your equipment</h3>
-          <p className="font-normal">
+      <div className="flex flex-col gap-5 justify-start min-h-screen w-full">
+        <div className="flex items-center justify-center w-full text-center text-purple-500 border-b border-purple-700 py-3">
+          <h3 className="uppercase font-bold w-full">Add your equipment</h3>
+          <p className="font-normal w-full">
             Please add your equipment, so you can use it for the exercise tab,
             ex: you do 5 mins of pumping at 5hg, so you register the 5 mins
             and the pressure and use the equipment registered here.

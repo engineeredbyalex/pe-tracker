@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import axios from 'axios';
 import Link from 'next/link';
-
 import { useSession } from 'next-auth/react';
-import Header from '../../components/Header';
 function Tracking() {
   const [trackingData, setTrackingData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +27,7 @@ function Tracking() {
 
 
     fetchTrackingData();
-  }, []);
+  }, [session?.user?.email]);
 
   return (
     <Layout>
