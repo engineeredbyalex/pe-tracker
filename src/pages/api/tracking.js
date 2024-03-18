@@ -9,24 +9,24 @@ export default async function handle(req, res) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const { method } = req;
+    const { method, user } = req;
 
     try {
         await mongooseConnect();
 
         if (method === "GET") {
             if (req.query?.id) {
-                const data = await TrackingData.findOne({ _id: req.query.id });
+                const data = await TrackingData.findOne({ _id: req.query.id, userEmail: req.headers['user-email'] }); // Retrieve user email from request headers
                 res.json(data);
-            }
-            else {
-                const data = await TrackingData.find();
+            } else {
+                // Fetch tracking data based on the user's email
+                const data = await TrackingData.find({ userEmail: req.headers['user-email'] });
                 res.json(data);
             }
         }
-
         if (method === "POST") {
             const {
+                userEmail,
                 flacidLenght,
                 flacidGirth,
                 flacidBPLenght,
@@ -43,6 +43,7 @@ export default async function handle(req, res) {
             } = req.body;
 
             const trackingDataDoc = await TrackingData.create({
+                userEmail,
                 flacidLenght,
                 flacidGirth,
                 flacidBPLenght,
@@ -63,6 +64,7 @@ export default async function handle(req, res) {
 
         if (method === "PUT") {
             const {
+                userEmail,
                 flacidLenght,
                 flacidGirth,
                 flacidBPLenght,
@@ -83,6 +85,7 @@ export default async function handle(req, res) {
             await TrackingData.updateOne(
                 { _id: id },
                 {
+                    userEmail,
                     flacidLenght,
                     flacidGirth,
                     flacidBPLenght,

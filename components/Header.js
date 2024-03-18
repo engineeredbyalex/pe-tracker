@@ -14,7 +14,7 @@ function Header() {
       <div className="flex flex-row gap-5 items-center">
         <div className="w-[3rem] h-[3rem] bg-black rounded-full">
           </div>
-        <p>{session.user.name}</p>
+        <p>{ session.user.name}</p>
         <button className="py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-700 text-center  cursor-pointer  transition-all ease-in-out" onClick={() => signOut("credentials")}>
           <p>  Sign Out</p>
         </button>

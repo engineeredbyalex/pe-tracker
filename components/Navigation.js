@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 // importing icons
 
 export default function Nav({ show }) {
-  const inactiveLink = 'flex  p-1 items-center justify-center h-[3rem] text-center uppercase';
-  const activeLink = inactiveLink + 'flex p-1 items-center justify-center h-[3rem] text-center  bg-purple-500 text-[#fff] rounded-sm font-bold uppercase w-full';
+  const inactiveLink = 'flex p-1 items-center justify-center h-[3rem] text-center  rounded-sm font-medium uppercase w-full';
+  const activeLink = inactiveLink + 'flex p-1 items-center justify-center h-[3rem] text-center bg-purple-500 text-[#fff] rounded-sm font-bold uppercase w-full';
   const router = useRouter();
   const { pathname } = router;
 
@@ -19,8 +19,19 @@ export default function Nav({ show }) {
           <h5> Home</h5>
         </Link>
         <Link href={'/tracking'} className={pathname.includes('/tracking') ? activeLink : inactiveLink}>
-     
           <h5>  Tracking</h5>
+        </Link>
+        <Link href={'/equipment'} className={pathname.includes('/equipment') ? activeLink : inactiveLink}>
+          <h5>  Equipment</h5>
+        </Link>
+        <Link href={'/stats'} className={pathname.includes('/stats') ? activeLink : inactiveLink}>
+          <h5>  Stats</h5>
+        </Link>
+        <Link href={'/settings'} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
+          <h5>  Settings</h5>
+        </Link>
+        <Link href={'/account'} className={pathname.includes('/account') ? activeLink : inactiveLink}>
+          <h5>  Account</h5>
         </Link>
       </nav>
     </div>
