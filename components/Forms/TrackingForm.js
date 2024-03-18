@@ -1,16 +1,16 @@
-// importing Layout
-import Layout from '../Layout';
-// importing useState
 import { useState } from 'react';
-// importing Axios
 import axios from "axios";
-// importing session
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 function TrackingForm() {
-    const { data: session, status } = useSession()
+    const { data: session } = useSession();
+    const router = useRouter();
+    
+
+
     const [formData, setFormData] = useState({
-        userId:session.user._id,
+        userEmail: session.user?.email,
         flacidLenght: "",
         flacidGirth: "",
         flacidBPLenght: "",
@@ -26,8 +26,6 @@ function TrackingForm() {
         postPumpingFlacidGirth: "",
     });
 
- 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -38,16 +36,15 @@ function TrackingForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form data:", formData);
 
         try {
             const dataRegister = await axios.post("/api/tracking", formData);
             console.log("Data response:", dataRegister);
+            router.push('/tracking');
         } catch (error) {
             console.error('Error submitting data:', error);
         }
     };
-
     return (
 
             <div className='flex items-center justify-center flex-col'>
@@ -55,7 +52,7 @@ function TrackingForm() {
                 <div className='w-full flex items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-700 font-bold'>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            Flacid Length:
+                        <h4>Flacid Length:</h4>
                             <input
                                 type="text"
                                 name="flacidLenght"
