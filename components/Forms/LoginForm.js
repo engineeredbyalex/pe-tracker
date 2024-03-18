@@ -60,7 +60,7 @@ function LoginForm() {
               </div>
             )}
             <Link href={"/register"}>
-              <p className="text-sm mt-3 text-right hover:text-purple-500 transition-all ease-in-out">Don't have an account? <span className="underline">Register</span></p>
+              <p className="text-sm mt-3 text-right hover:text-purple-500 transition-all ease-in-out">Don`t have an account? <span className="underline">Register</span></p>
             </Link>
           </form>
         </div>
