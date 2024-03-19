@@ -13,7 +13,7 @@ export default function Faq() {
                     </h3>
                     <div className="flex flex-col gap-5">
                         <h4 className="text-purple-500">
-                            First, add the equipment/tools that you have. If there are any missing, contact me. <span className="text-purple-400 font-light">(There is no limit to the number of equipment you can add.)</span>
+                            First, add the equipment/tools that you have. If there are any missing, contact me. <span className="text-purple-400 font-light">(There is currently no limit to the number of equipment you can add.)</span>
                         </h4>
                         <h4 className="text-purple-500">
                             Second, you can either take measurements of your penis or track the exercises you are doing or have done. There is no specific order; both exercises and measurements can be edited as many times as you want and are identified by date.
@@ -28,9 +28,19 @@ export default function Faq() {
                         <h4 className="text-purple-500 border-b py-5 ">
                             The app is currently free and will remain free for some time. However, in the future, there may be a requirement to pay based on user data and for storage if users want image storage for progress or other purposes.
                         </h4>
-                        <h4 className="text-purple-500 border-b py-5">
-                            <span className="font-bold uppercase">Plans for expansion: YES</span> <br />
-                            Updates are planned, including the addition of stats based on user-provided data. However, more test cases and data are needed for this purpose. Additionally, there are plans to transform the app into a mobile app based on user input, but support from users will be required as the developer is not very familiar with mobile development.
+                    </div>
+                </div>
+                <div className="text-purple-500 text-center">
+                    <h3 className="text-purple-700 font-semibold uppercase mb-5">
+                        Updates
+                    </h3>
+                    <div className="flex flex-col gap-5 ">
+                        <h4 className="text-purple-500 border-b py-5 ">
+                            The first update planned for this week is a feature where users can upvote or downvote the importance of the updates and maybe have the option to suggest upcoming updates.
+                            <br />
+                            The second update will include the option to see in-depth stats regarding size, exercise, create routines, and maybe lists with other things related to PE, supplements, etc.
+                            <br />
+                            The third update will possibly include the option to use other users routines.
                         </h4>
                     </div>
                 </div>

@@ -1,33 +1,34 @@
-// importing state
-import { useState } from "react"
-// importing signin and useSession
-import {  useSession } from "next-auth/react"
-// importing link
-import Link from "next/link"
-// importing router
-import { useRouter } from "next/router"
-// importing axios
-import axios from "axios"
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 function RegisterForm() {
-    const { data: status, session } = useSession()
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [username, setUsername] = useState("")
+    const { data: status, session } = useSession();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [username, setUsername] = useState("");
     const [error, setError] = useState("");
-    const router = useRouter()
-
+    const [toggle, setToggle] = useState(false);
+    const [passwordMatch, setPasswordMatch] = useState(true); // State to track if passwords match
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!username || !email || !password) {
+        if (!username || !email || !password || !confirmPassword || !toggle) {
             setError("All fields are necessary.");
             return;
         }
-     
+
+        if (password !== confirmPassword) {
+            setPasswordMatch(false);
+            return;
+        }
+
         try {
-            // Check if user already exists
             const resUserExists = await axios.post("/api/userExists", { email });
 
             if (resUserExists.data.user) {
@@ -35,7 +36,6 @@ function RegisterForm() {
                 return;
             }
 
-            // Register user if user doesn't exist
             const resRegister = await axios.post("/api/register", { username, email, password });
 
             if (resRegister.status === 201) {
@@ -63,9 +63,15 @@ function RegisterForm() {
                         <input placeholder="Email" type="email" onChange={(e) => setEmail(e.target.value)} />
                         <input placeholder="Username" type="text" onChange={(e) => setUsername(e.target.value)} />
                         <input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                        <input placeholder="Confirm Password" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
                         <div className="w-full flex flex-col gap-3">
-                            <button type="submit" className="w-full bg-purple-500 py-2 px-3 rounded-md text-center cursor-pointer hover:bg-purple-700 transition-all ease-in-out">
-                                <p className="text-white uppercase font-bold">Register</p>
+                            <div className="flex items-center justify-center flex-row gap-1">
+                                <p>Check the box if you read the <Link href="/policy"><span className="text-purple-500">Privacy Policy</span></Link>.</p>
+                                <input className="w-[1.5rem] h-[1.5rem]" type="checkbox" onChange={() => setToggle(!toggle)} />
+                            </div>
+                            {!passwordMatch && <p className="text-red-500">Passwords do not match.</p>}
+                            <button type="submit" className={`w-full ${toggle && passwordMatch ? 'bg-purple-500 hover:bg-purple-700' : 'bg-purple-200 cursor-not-allowed'} py-2 px-3 rounded-md text-center text-white uppercase font-bold transition-all ease-in-out`}>
+                                Register
                             </button>
                         </div>
                         {error && (
@@ -73,15 +79,14 @@ function RegisterForm() {
                                 <p> {error}</p>
                             </div>
                         )}
-                        <Link href={"/login"}>
-                            <p className="text-sm mt-3 text-right hover:text-purple-500 transition-all ease-in-out">Already have an account ? <span className="underline">Login</span></p>
+                        <Link href={"/"}>
+                            <p className="text-sm mt-3 text-right hover:text-purple-500 transition-all ease-in-out">Already have an account ? <span className="underline text-purple-500">Login</span></p>
                         </Link>
                     </form>
                 </div>
             </div>
         );
     }
-
 }
 
-export default RegisterForm
+export default RegisterForm;

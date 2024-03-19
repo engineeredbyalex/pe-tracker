@@ -40,6 +40,9 @@ export default function Nav({ show }) {
                <Link href={'/faq'} className={pathname.includes('/faq') ? activeLink : inactiveLink}>
           <h5>  FAQ</h5>
         </Link>
+               <Link href={'/policy'} className={pathname.includes('/policy') ? activeLink : inactiveLink}>
+          <h5>  Policy</h5>
+        </Link>
       </nav>
     </div>
   );
