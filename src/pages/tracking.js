@@ -45,7 +45,9 @@ function Tracking() {
                 <p className='text-purple-700 text-center mb-2'>Date: {(new Date(data.createdAt)).toLocaleString()}</p>
                 <div className='flex flex-row gap-5 w-full'>
                   <button className="w-1/2 py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">
+                    <Link href={'/tracking/edit/' + data._id}>
                     <p>Edit</p>
+                    </Link>
                   </button>
                   <button className="w-1/2 py-2 px-10 rounded-md text-[#fff] bg-red-500 hover:bg-red-600 text-center cursor-pointer transition-all ease-in-out">
                     <Link href={'/tracking/delete/' + data._id}>

@@ -3,29 +3,44 @@ import axios from "axios";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-function TrackingForm() {
+function TrackingForm(
+    {
+        _id,
+        flacidLenght: existingflacidLenght,
+        flacidGirth: existingflacidGirth,
+        flacidBPLenght: existingflacidBPLenght,
+        erectLenght: existingerectLenght,
+        erectGirth: existingerectGirth,
+        erectBPLenght: existingerectBPLenght,
+        postExtendedFlacidLenght: existingpostExtendedFlacidLenght,
+        postExtendederectBPLenght: existingpostExtendederectBPLenght,
+        postExtendedErectLenght: existingpostExtendedErectLenght,
+        postPumpingErectLenght: existingpostPumpingErectLenght,
+        postPumpingErectGirth: existingpostPumpingErectGirth,
+        postPumpingFlacidLenght: existingpostPumpingFlacidLenght,
+        postPumpingFlacidGirth: existingpostPumpingFlacidGirth,
+    })
+{
     const { data: session } = useSession();
-    const router = useRouter();
-    
-
+    const router = useRouter()
 
     const [formData, setFormData] = useState({
         userEmail: session.user?.email,
-        flacidLenght: "",
-        flacidGirth: "",
-        flacidBPLenght: "",
-        erectLenght: "",
-        erectGirth: "",
-        erectBPLenght: "",
-        postExtendedFlacidLenght: "",
-        postExtendederectBPLenght: "",
-        postExtendedErectLenght: "",
-        postPumpingErectLenght: "",
-        postPumpingErectGirth: "",
-        postPumpingFlacidLenght: "",
-        postPumpingFlacidGirth: "",
+        flacidLenght: existingflacidLenght || "",
+        flacidGirth: existingflacidGirth || "",
+        flacidBPLenght: existingflacidBPLenght ||  "",
+        erectLenght: existingerectLenght  || "",
+        erectGirth: existingerectGirth ||  "",
+        erectBPLenght: existingerectBPLenght  || "",
+        postExtendedFlacidLenght: existingpostExtendedFlacidLenght ||  "",
+        postExtendederectBPLenght: existingpostExtendederectBPLenght  || "",
+        postExtendedErectLenght: existingpostExtendedErectLenght ||  "",
+        postPumpingErectLenght: existingpostPumpingErectLenght ||  "",
+        postPumpingErectGirth: existingpostPumpingErectGirth ||  "",
+        postPumpingFlacidLenght: existingpostPumpingFlacidLenght ||  "",
+        postPumpingFlacidGirth: existingpostPumpingFlacidGirth ||  "",
     });
-
+    console.log(formData.existingflacidLenght)
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -38,9 +53,13 @@ function TrackingForm() {
         e.preventDefault();
 
         try {
-            const dataRegister = await axios.post("/api/tracking", formData);
-            console.log("Data response:", dataRegister);
-            router.push('/tracking');
+            if (_id) { 
+               await axios.put("/api/tracking", {...formData,_id});
+                router.push('/tracking');
+            }
+            else {
+               await axios.post("/api/tracking", formData);
+            }
         } catch (error) {
             console.error('Error submitting data:', error);
         }

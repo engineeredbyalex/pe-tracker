@@ -9,7 +9,7 @@ export default async function handle(req, res) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const { method, user } = req;
+    const { method } = req;
 
     try {
         await mongooseConnect();
@@ -41,6 +41,11 @@ export default async function handle(req, res) {
                 postPumpingFlacidLenght,
                 postPumpingFlacidGirth
             } = req.body;
+
+            // Ensure that the userEmail from the request matches the user's email from the session
+            if (userEmail !== req.headers['user-email']) {
+                return res.status(403).json({ error: 'Forbidden' });
+            }
 
             const trackingDataDoc = await TrackingData.create({
                 userEmail,
@@ -79,6 +84,11 @@ export default async function handle(req, res) {
                 postPumpingFlacidLenght,
                 postPumpingFlacidGirth
             } = req.body;
+
+            // Ensure that the userEmail from the request matches the user's email from the session
+            if (userEmail !== req.headers['user-email']) {
+                return res.status(403).json({ error: 'Forbidden' });
+            }
 
             const { id } = req.query;
 
