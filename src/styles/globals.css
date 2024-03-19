@@ -62,5 +62,5 @@ input {
     }
 }
 input{
-    @apply border-purple-500 active:border-purple-700
+    @apply border-purple-500 active:border-purple-700 
 }
