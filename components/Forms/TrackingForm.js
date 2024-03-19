@@ -40,7 +40,6 @@ function TrackingForm(
         postPumpingFlacidLenght: existingpostPumpingFlacidLenght ||  "",
         postPumpingFlacidGirth: existingpostPumpingFlacidGirth ||  "",
     });
-    console.log(formData.existingflacidLenght)
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
