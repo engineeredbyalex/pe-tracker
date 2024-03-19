@@ -1,11 +1,13 @@
+// importing the model
 import { TrackingData } from "../../../models/Tracking";
+// importing mongooseConnect
 import { mongooseConnect } from "../../../lib/mongoose";
 
 export default async function handle(req, res) {
     try {
-        console.log('Received request:', req.body);
+        // console.log('Received request:', req.body);
     } catch (error) {
-        console.error('Error handling request:', error);
+        // console.error('Error handling request:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 

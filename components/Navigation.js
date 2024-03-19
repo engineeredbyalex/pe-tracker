@@ -2,7 +2,8 @@
 import Link from "next/link";
 // importing router
 import { useRouter } from "next/router";
-// importing icons
+
+
 
 export default function Nav({ show }) {
   const inactiveLink = 'flex p-1 items-center justify-center h-[3rem] text-center  rounded-sm font-medium uppercase w-full';
@@ -20,6 +21,9 @@ export default function Nav({ show }) {
         </Link>
         <Link href={'/tracking'} className={pathname.includes('/tracking') ? activeLink : inactiveLink}>
           <h5>  Tracking</h5>
+        </Link>
+        <Link href={'/exercise'} className={pathname.includes('/exercise') ? activeLink : inactiveLink}>
+          <h5> Exercise</h5>
         </Link>
         <Link href={'/equipment'} className={pathname.includes('/equipment') ? activeLink : inactiveLink}>
           <h5>  Equipment</h5>

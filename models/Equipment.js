@@ -2,7 +2,8 @@
 import { model, models, Schema } from "mongoose"; 
 
 const EquipmentSchema = new Schema({
-    typeOf: { type: String,required :true },
+    userEmail: { type: String, required: true }, 
+    type: { type: String,required :true },
     brand: { type: String },
     name :{type:String},
 }, {
