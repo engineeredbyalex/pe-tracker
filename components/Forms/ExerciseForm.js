@@ -92,8 +92,10 @@ catch (error) {
           <label>
             <h4 className="text-purple-700 font-medium mb-2">Device</h4>
             <select name="device" onChange={handleChange} value={formData.device} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md">
+               <option  value="none">None </option>
              {deviceData.map(device => (
                <option key={device._id} value="">{device.type} - {device.name} </option>
+               
              ))}
             </select>
           </label>
