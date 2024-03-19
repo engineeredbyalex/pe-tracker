@@ -19,14 +19,14 @@ export default function Nav({ show }) {
      
           <h5> Home</h5>
         </Link>
+           <Link href={'/equipment'} className={pathname.includes('/equipment') ? activeLink : inactiveLink}>
+          <h5>  Equipment</h5>
+        </Link>
         <Link href={'/tracking'} className={pathname.includes('/tracking') ? activeLink : inactiveLink}>
           <h5>  Tracking</h5>
         </Link>
         <Link href={'/exercise'} className={pathname.includes('/exercise') ? activeLink : inactiveLink}>
           <h5> Exercise</h5>
-        </Link>
-        <Link href={'/equipment'} className={pathname.includes('/equipment') ? activeLink : inactiveLink}>
-          <h5>  Equipment</h5>
         </Link>
         <Link href={'/stats'} className={pathname.includes('/stats') ? activeLink : inactiveLink}>
           <h5>  Stats</h5>
@@ -36,6 +36,9 @@ export default function Nav({ show }) {
         </Link>
         <Link href={'/account'} className={pathname.includes('/account') ? activeLink : inactiveLink}>
           <h5>  Account</h5>
+        </Link>
+               <Link href={'/faq'} className={pathname.includes('/faq') ? activeLink : inactiveLink}>
+          <h5>  FAQ</h5>
         </Link>
       </nav>
     </div>

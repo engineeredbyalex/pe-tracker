@@ -65,16 +65,19 @@ export default function EquipmentPage() {
                 <option value="">Select type</option>
                 <option value="pump">Pump</option>
                 <option value="extender">Extender</option>
+                <option value="extender">Silicone rings</option>
+                <option value="extender">Hard clamping</option>
                 {/* Add more options as needed */}
               </select>
             </label>
+              <p className="text-purple-500">If there is anything missing, feel free to contact me to add it </p>
             <label>
               <h4 className="text-purple-700 font-medium mb-2">Brand</h4>
               <input name="brand" onChange={handleChange} type="text" placeholder="Enter the brand of your equipment." />
             </label>
             <label>
               <h4 className="text-purple-700 font-medium mb-2">Name of your equipment</h4>
-              <input name="name" onChange={handleChange} type="text" placeholder="Enter the Name of your equipment." />
+              <input name="name" onChange={handleChange} type="text" placeholder="Enter the name of your equipment." />
             </label>
           </div>
           <button type="submit" className="w-full mt-5 py-2 px-3 rounded-md bg-purple-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">
