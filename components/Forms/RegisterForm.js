@@ -12,8 +12,8 @@ function RegisterForm() {
     const [username, setUsername] = useState("");
     const [error, setError] = useState("");
     const [toggle, setToggle] = useState(false);
-    const [passwordMatch, setPasswordMatch] = useState(true); 
-    const [loading, setLoading] = useState(false); 
+    const [passwordMatch, setPasswordMatch] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const router = useRouter();
 
@@ -33,14 +33,13 @@ function RegisterForm() {
         try {
             setLoading(true);
             const resUserExists = await axios.post("/api/userExists", { email });
-
             if (resUserExists.data.user) {
                 setError("User with this email already exists. Please use a different email.");
+                setLoading(false);
                 return;
             }
 
             const resRegister = await axios.post("/api/register", { username, email, password });
-
             if (resRegister.status === 201) {
                 const form = e.target;
                 form.reset();
@@ -55,7 +54,6 @@ function RegisterForm() {
             setLoading(false);
         }
     };
-
 
     if (status === "loading") {
         return null;
@@ -77,7 +75,7 @@ function RegisterForm() {
                                 <input className="w-[1.5rem] h-[1.5rem]" type="checkbox" onChange={() => setToggle(!toggle)} />
                             </div>
                             {!passwordMatch && <p className="text-red-500">Passwords do not match.</p>}
-                            <button type="submit" disabled={!toggle || !passwordMatch || loading} className={`w-full bg-purple-500 ${!toggle ? 'bg-purple-200 cursor-not-allowed' : 'hover:bg-purple-700'} py-2 px-3 rounded-md text-center text-white uppercase font-bold transition-all ease-in-out`}>
+                            <button type="submit" disabled={!toggle || !passwordMatch || loading} className={`w-full ${toggle && passwordMatch ? 'bg-purple-500 hover:bg-purple-700' : 'bg-purple-200 cursor-not-allowed'} py-2 px-3 rounded-md text-center text-white uppercase font-bold transition-all ease-in-out`}>
                                 {loading ? 'Registering...' : 'Register'}
                             </button>
                         </div>
