@@ -15,7 +15,7 @@ export default function EquipmentPage() {
   return (
     <Layout>
       <div className="flex flex-col gap-5 justify-start min-h-screen w-full">
-        <div className="flex items-center justify-center w-full text-center text-purple-500 border-b border-purple-700 py-3">
+        <div className="flex flex-col items-center justify-center w-full text-center text-purple-500 border-b border-purple-700 py-3">
           <h3 className="uppercase font-bold w-full">Add your equipment</h3>
           <p className="font-normal w-full">
             Please add your equipment, so you can use it for the exercise tab,
