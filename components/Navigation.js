@@ -28,15 +28,15 @@ export default function Nav({ show }) {
         <Link href={'/exercise'} className={pathname.includes('/exercise') ? activeLink : inactiveLink}>
           <h5> Exercise</h5>
         </Link>
-        <Link href={'/stats'} className={pathname.includes('/stats') ? activeLink : inactiveLink}>
+        {/* <Link href={'/stats'} className={pathname.includes('/stats') ? activeLink : inactiveLink}>
           <h5>  Stats</h5>
-        </Link>
-        <Link href={'/settings'} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
+        </Link> */}
+        {/* <Link href={'/settings'} className={pathname.includes('/settings') ? activeLink : inactiveLink}>
           <h5>  Settings</h5>
-        </Link>
-        <Link href={'/account'} className={pathname.includes('/account') ? activeLink : inactiveLink}>
+        </Link> */}
+        {/* <Link href={'/account'} className={pathname.includes('/account') ? activeLink : inactiveLink}>
           <h5>  Account</h5>
-        </Link>
+        </Link> */}
                <Link href={'/faq'} className={pathname.includes('/faq') ? activeLink : inactiveLink}>
           <h5>  FAQ</h5>
         </Link>
