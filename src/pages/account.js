@@ -4,7 +4,7 @@ import Layout from '../../components/Layout'
 import { useSession } from 'next-auth/react'
 
 
-export default function account() {
+export default function Account() {
   const { data: session } = useSession();
 
   return (
