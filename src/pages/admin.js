@@ -56,7 +56,7 @@ export default function Updates({
             console.error('Error submitting equipment data:', error);
         }
     };
-    if (session.user.email === 'xzsplit69@gmail.com') {
+    if (session.user?.email === 'xzsplit69@gmail.com') {
         return (
             <Layout>
                 <div className="w-full flex items-center justify-center absolute top-0">
