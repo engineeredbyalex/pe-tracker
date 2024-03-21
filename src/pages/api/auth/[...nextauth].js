@@ -37,7 +37,7 @@ export const authOptions = {
                         id: user._id, // This should be unique identifier for the user
                         email: user.email, // Include any other user-related data you need in the session
                         name: user.username, // Include any other user-related data you need in the session
-                        admin: user.admin, // Include any other user-related data you need in the session
+                        adminStatus: user.adminStatus, // Include any other user-related data you need in the session
                         // Add any other data you want to access in the session
                     };
                 } catch (error) {

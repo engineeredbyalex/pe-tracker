@@ -79,10 +79,10 @@ export default function Updates({
                             <p className="bg-purple-100 mb-2 px-3 py-1 uppercase text-purple-400 rounded-md">This field is required !</p>
                             <select name="updatePriority" onChange={handleChange} value={formData.updatePriority} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md ">
                                 <option value="">Select Type</option>
-                                <option value="HighPriority">High Priority</option>
-                                <option value="MediumPriority">Medium Priority</option>
-                                <option value="LowPriority">Low Priority</option>
-                                <option value="NoPriority">No Priority</option>
+                                <option value="High Priority">High Priority</option>
+                                <option value="Medium Priority">Medium Priority</option>
+                                <option value="Low Priority">Low Priority</option>
+                                <option value="No Priority">No Priority</option>
                             </select>
                             
                         </label>

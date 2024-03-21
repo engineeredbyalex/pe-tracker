@@ -5,7 +5,7 @@ import { signOut } from "next-auth/react";
 
 function Header() {
   const { data: session, status } = useSession()
-  console.log(session)
+
 
   return (
     <div className=' flex absolute top-[1rem] right-[1rem]'>
