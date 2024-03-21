@@ -2,12 +2,10 @@
 import Layout from '../../components/Layout'
 //import useSession
 import { useSession } from 'next-auth/react'
-// import useState
-import { useState } from 'react'
+
 
 export default function account() {
-  const{data:session} = useSession()
-  console.log(session)
+  const { data: session } = useSession();
 
   return (
     <Layout>
