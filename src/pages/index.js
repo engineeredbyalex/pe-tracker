@@ -32,6 +32,10 @@ export default function Home() {
             </button>
           </div>
         </div>
+        <div className="mt-10"> 
+          <h4 className='uppercase font-bold text-purple-700 mb-10 text-center'>Future Updates</h4>
+          
+        </div>
       </div>
     </Layout>
   );

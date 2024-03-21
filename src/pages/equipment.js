@@ -6,9 +6,13 @@
 import axios from "axios";
 // importing useSession
 import { useSession } from 'next-auth/react';
+// importing toasty 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function EquipmentPage() {
   const { data: session } = useSession();
+  const notify = () => toast("Data entry successfull");
 
   const [formData, setFormData] = useState({
     userEmail: session?.user?.email || '',
@@ -38,7 +42,7 @@ export default function EquipmentPage() {
           'user-email': session?.user?.email  // Ensure that user-email header is included
         }
       });
-
+      notify()
       console.log("Equipment data submitted successfully:", response.data);
     } catch (error) {
       console.error('Error submitting equipment data:', error);
@@ -48,7 +52,20 @@ export default function EquipmentPage() {
 
   return (
     <Layout>
+      <div className="w-full flex items-center justify-center absolute top-0">
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          transition="Bounce"/>
+    </div>
       <div className="flex flex-col gap-5 justify-start min-h-screen lg:w-1/2 w-full">
+        
         <div className="flex flex-col items-center justify-center w-full text-center text-purple-500 border-b border-purple-700 py-3">
           <h3 className="uppercase font-bold w-full">Add your equipment</h3>
           <p className="font-normal w-full">
@@ -61,6 +78,7 @@ export default function EquipmentPage() {
           <div>
             <label>
               <h4 className="text-purple-700 font-medium mb-2">Type</h4>
+              <p className="bg-purple-100 mb-2 px-3 py-1 uppercase text-purple-400 rounded-md">This field is required !</p>
               <select name="type" onChange={handleChange} value={formData.type} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md ">
                 <option value="">Select type</option>
                 <option value="pump">Pump</option>
@@ -70,14 +88,14 @@ export default function EquipmentPage() {
                 {/* Add more options as needed */}
               </select>
             </label>
-              <p className="text-purple-500">If there is anything missing, feel free to contact me to add it </p>
+              <p className="bg-purple-100 mb-2 px-3 py-1 uppercase text-purple-400 rounded-md mt-5">If there is anything missing or you would like to add to this list, feel free to contact me to add it.</p>
             <label>
               <h4 className="text-purple-700 font-medium mb-2">Brand</h4>
-              <input name="brand" onChange={handleChange} type="text" placeholder="Enter the brand of your equipment." />
+              <input className="bg-transparent" name="brand" onChange={handleChange} type="text" placeholder="Enter the brand of your equipment." />
             </label>
             <label>
               <h4 className="text-purple-700 font-medium mb-2">Name of your equipment</h4>
-              <input name="name" onChange={handleChange} type="text" placeholder="Enter the name of your equipment." />
+              <input className="bg-transparent" name="name" onChange={handleChange} type="text" placeholder="Enter the name of your equipment." />
             </label>
           </div>
           <button type="submit" className="w-full mt-5 py-2 px-3 rounded-md bg-purple-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">

@@ -1,17 +1,15 @@
-// importing the model
 import { TrackingData } from "../../../models/Tracking";
-// importing mongooseConnect
 import { mongooseConnect } from "../../../lib/mongoose";
 
 export default async function handle(req, res) {
     try {
-        // console.log('Received request:', req.body);
+        console.log('Received request:', req.body);
     } catch (error) {
-        // console.error('Error handling request:', error);
+        console.error('Error handling request:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const { method } = req;
+    const { method, user } = req;
 
     try {
         await mongooseConnect();
@@ -43,11 +41,6 @@ export default async function handle(req, res) {
                 postPumpingFlacidLenght,
                 postPumpingFlacidGirth
             } = req.body;
-
-            // Ensure that the userEmail from the request matches the user's email from the session
-            if (userEmail !== req.headers['user-email']) {
-                return res.status(403).json({ error: 'Forbidden' });
-            }
 
             const trackingDataDoc = await TrackingData.create({
                 userEmail,
@@ -86,11 +79,6 @@ export default async function handle(req, res) {
                 postPumpingFlacidLenght,
                 postPumpingFlacidGirth
             } = req.body;
-
-            // Ensure that the userEmail from the request matches the user's email from the session
-            if (userEmail !== req.headers['user-email']) {
-                return res.status(403).json({ error: 'Forbidden' });
-            }
 
             const { id } = req.query;
 
