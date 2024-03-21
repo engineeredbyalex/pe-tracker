@@ -18,7 +18,9 @@ const TrackingSchema = new Schema(
         postPumpingFlacidLenght: { type: Number },
         postPumpingFlacidGirth: { type: Number },
     },
-    { timestamps: true }
+    {
+        timestamps: true
+    }
 );
 
 export const TrackingData = models?.TrackingData || model('TrackingData', TrackingSchema);

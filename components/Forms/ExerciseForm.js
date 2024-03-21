@@ -94,7 +94,7 @@ catch (error) {
             <select name="device" onChange={handleChange} value={formData.device} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md">
                <option  value="none">None </option>
              {deviceData.map(device => (
-               <option key={device._id} value="">{device.type} - {device.name} </option>
+               <option key={device._id} value={device.name}>{device.type} - {device.name} </option>
                
              ))}
             </select>
@@ -134,7 +134,7 @@ catch (error) {
         </button>
          {message ?  (
            <div>
-            <div className="w-full mt-5 py-2 px-3 rounded-md bg-green-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">
+            <div className="w-full mt-5 py-2 px-3 rounded-md bg-green-500 hover:bg-green-600 text-center cursor-pointer transition-all ease-in-out">
               <p className="text-white uppercase font-bold">
                 Exercise data submitted successfully
               </p>

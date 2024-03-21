@@ -6,9 +6,9 @@ const ExerciseSchema = new Schema({
     type: { type: String, required: true }, // Type of exercise (e.g., stretching, pumping)
     duration: { type: Number, required: true }, // Duration of the exercise
     durationUnit: { type: String, enum: ['seconds', 'minutes', 'hours'], default: 'minutes' }, // Unit of duration
-    sets: { type: Number, required: true }, // Number of sets
-    unit: { type: String, required: true }, // Unit of measurement (e.g., kg, lbs)
-    device: { type: String, required: true }, // Unit of measurement (e.g., kg, lbs)
+    sets: { type: Number, }, // Number of sets
+    unit: { type: String, }, // Unit of measurement (e.g., kg, lbs)
+    device: { type: String,  }, // Unit of measurement (e.g., kg, lbs)
 }, {
     timestamps: true
 });

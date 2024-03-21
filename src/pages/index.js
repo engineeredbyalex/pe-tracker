@@ -1,9 +1,26 @@
-import StatsBox from "../../components/Box/StatsBox";
+
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import axios from "axios";
 
 export default function Home() {
+  const [updates,setUpdates] = useState([])
+
+  useEffect(() => {
+    const fetchUpdates = async () => {
+      try {
+        const response = await axios.get("/api/updates")
+        
+        console.log(response)
+    }
+catch (error){}
+    }
+    fetchUpdates()
+  },[])
+
+
   return (
     <Layout>
       <div className="flex flex-col w-full h-full items-center justify-center">
@@ -34,7 +51,11 @@ export default function Home() {
         </div>
         <div className="mt-10"> 
           <h4 className='uppercase font-bold text-purple-700 mb-10 text-center'>Future Updates</h4>
-          
+          {updates.map((data, index) => (
+            <div className="bg-purple-200 px-3 py-2 mb-5 rounded-lg w-full" key={index}>
+              <h3>{data.updatePriority}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </Layout>

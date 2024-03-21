@@ -6,7 +6,8 @@ import axios from "axios";
 import { useSession } from 'next-auth/react';
 // importing
 import { useRouter } from 'next/router';
-
+// importing link 
+import Link from 'next/link';
 function TrackingForm(
     {
         _id,
@@ -26,6 +27,7 @@ function TrackingForm(
     }) {
     const { data: session } = useSession();
     const router = useRouter()
+    const [message, setMessage] = useState(false)
 
     const [formData, setFormData] = useState({
         userEmail: session.user?.email,
@@ -57,14 +59,17 @@ function TrackingForm(
         try {
             if (_id) {
                 await axios.put("/api/tracking", { ...formData, _id });
-                router.push('/tracking');
+              
+                setMessage(!message)
             }
             else {
                 await axios.post("/api/tracking", formData);
-                router.push('/tracking');
+        
+                setMessage(!message)
             }
         } catch (error) {
             console.error('Error submitting data:', error);
+            setMessage(message)
         }
     };
     return (
@@ -194,6 +199,23 @@ function TrackingForm(
                     <button type="submit" className="w-full mt-5 py-2 px-3 rounded-md bg-purple-500 hover:bg-purple-700 text-center  cursor-pointer  transition-all ease-in-out">
                         <p className="text-white uppercase font-bold">Submit</p>
                     </button>
+                    {message ? (
+                        <div>
+                            <div className="w-full mt-5 py-2 px-3 rounded-md bg-green-500 hover:bg-green-600 text-center cursor-pointer transition-all ease-in-out">
+                                <p className="text-white uppercase font-bold">
+                                    Exercise data submitted successfully
+                                </p>
+                            </div>
+                            <div className="w-full mt-5 py-2 px-3 rounded-md bg-black text-center cursor-pointer transition-all ease-in-out">
+                                <Link href='/tracking'>
+                                    <p className="text-white uppercase font-bold">
+                                        Go Back
+                                    </p>
+                                </Link>
+                            </div>
+                        </div>
+
+                    ) : (null)}
                 </form>
             </div>
         </div>
