@@ -136,8 +136,8 @@ catch (error) {
               <option value="kg">Kg</option>
               <option value="g">g</option>
               <option value="lbs">lbs</option>
-              <option value="lbs">mm</option>
-              <option value="lbs">inches</option>
+              <option value="mm">mm</option>
+              <option value="inches">inches</option>
             </select>
           </label>
         </div>
