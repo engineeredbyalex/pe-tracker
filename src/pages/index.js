@@ -16,11 +16,17 @@ export default function Home() {
         // Update the state with the fetched data
         setUpdates(response.data);
       } catch (error) {
-       
+        console.error('Error fetching updates:', error);
       }
     };
     fetchUpdates();
   }, []);
+
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  };
 
   return (
     <Layout>
@@ -31,7 +37,7 @@ export default function Home() {
             <h3 className='uppercase font-bold text-purple-700 mb-10 text-center'>Welcome to the PE Tracker</h3>
             <div className='w-full flex flex-col items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-500 '>
               <h4 className="font-bold">Built by Few-Valuable-6094</h4>
-              <h5 className="text-center w-full">I hope this will be useful to you on your journey of PE. This was built as a side project for tracking my PE progress, so it`s still a bit rough around the edges. <br /> The app is currently in an early version, but there will be updates in the coming months based on user requests. My goal is to create something that all of us can benefit from.</h5>
+              <h5 className="text-center w-full">I hope this will be useful to you on your journey of PE. This was built as a side project for tracking my PE progress, so it's still a bit rough around the edges. <br /> The app is currently in an early version, but there will be updates in the coming months based on user requests. My goal is to create something that all of us can benefit from.</h5>
               <h5 className="text-center w-full">Also, privacy is a priority to me so data is encrypted and stored in MongoDB.</h5>
               <p className="text-center w-full">Feel free to message me on Reddit at Few-Valuable-6094 <br /> or <br /> Email : xzsplit69@gmail.com</p>
             </div>
@@ -69,16 +75,10 @@ export default function Home() {
                 <p className="text-purple-500 uppercase">Update created by:</p>
                 <p className="text-purple-500">{data.updateCreator}</p>
               </div>
-              {/* <div className="flex flex-row">
-                <div className="w-full flex flex-row gap-5 justify-start text-purple-500">
-               <h5>Vote count</h5>
-               <h5>0</h5>
-                </div>
-                <div className="w-full flex flex-row gap-5 justify-end">
-                  <FaArrowAltCircleUp color="#595959" size={30} />
-                  <FaArrowCircleDown color="#595959" size={30} />
-                </div>
-           </div> */}
+              <div>
+                <p className="text-purple-500 uppercase">Created at:</p>
+                <p className="text-purple-500">{formatDate(data.createdAt)}</p>
+              </div>
             </div>
           ))}
         </div>
