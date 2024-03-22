@@ -87,10 +87,10 @@ export default function EquipmentPage() {
                 <p className="bg-purple-100 mb-2 px-3 py-1 uppercase text-purple-400 rounded-md">This field is required !</p>
                 <select name="type" onChange={handleChange} value={formData.type} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md ">
                   <option value="">Select type</option>
-                  <option value="pump">Pump</option>
+                  <option value="Pump">Pump</option>
                   <option value="extender">Extender</option>
-                  <option value="extender">Silicone rings</option>
-                  <option value="extender">Hard clamping</option>
+                  <option value="rings">Silicone rings</option>
+                  <option value="clamp">Hard clamping</option>
                   {/* Add more options as needed */}
                 </select>
               </label>
