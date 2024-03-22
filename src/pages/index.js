@@ -37,7 +37,7 @@ export default function Home() {
             <h3 className='uppercase font-bold text-purple-700 mb-10 text-center'>Welcome to the PE Tracker</h3>
             <div className='w-full flex flex-col items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-500 '>
               <h4 className="font-bold">Built by Few-Valuable-6094</h4>
-              <h5 className="text-center w-full">I hope this will be useful to you on your journey of PE. This was built as a side project for tracking my PE progress, so it's still a bit rough around the edges. <br /> The app is currently in an early version, but there will be updates in the coming months based on user requests. My goal is to create something that all of us can benefit from.</h5>
+              <h5 className="text-center w-full">I hope this will be useful to you on your journey of PE. This was built as a side project for tracking my PE progress, so its still a bit rough around the edges. <br /> The app is currently in an early version, but there will be updates in the coming months based on user requests. My goal is to create something that all of us can benefit from.</h5>
               <h5 className="text-center w-full">Also, privacy is a priority to me so data is encrypted and stored in MongoDB.</h5>
               <p className="text-center w-full">Feel free to message me on Reddit at Few-Valuable-6094 <br /> or <br /> Email : xzsplit69@gmail.com</p>
             </div>
