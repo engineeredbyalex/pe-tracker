@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Layout from "../../../../components/Layout";
 import TrackingForm from "../../../../components/Forms/TrackingForm";
 import { useSession } from "next-auth/react";
+import ExerciseForm from "../../../../components/Forms/ExerciseForm";
 
 export default function EditTrackingData() {
     const [trackingData, setTrackingData] = useState(null);
@@ -15,7 +16,7 @@ export default function EditTrackingData() {
     useEffect(() => {
         const fetchTrackingData = async () => {
             try {
-                const response = await axios.get(`/api/tracking?id=${id}`, {
+                const response = await axios.get(`/api/exercise?id=${id}`, {
                     headers: {
                         'User-Email': session?.user?.email
                     }
@@ -42,7 +43,7 @@ export default function EditTrackingData() {
                 {loading ? (
                     <p>Loading...</p>
                 ) : (
-                    <TrackingForm {...trackingData} />
+                    <ExerciseForm {...trackingData} />
                 )}
             </div>
         </Layout>

@@ -7,7 +7,17 @@ import { useSession } from 'next-auth/react';
 // importing link
 import Link from "next/link";
 
-export default function ExerciseForm() {
+export default function ExerciseForm(
+  {
+    _id,
+    type :existingType,
+    device: existingDevice,
+    duration: existingDuration,
+    durationUnit: existingDurationUnit,
+    sets: existingSets,
+    unit: existingUnit,
+  }
+) {
   const { data: session } = useSession();
   const [deviceData, setDeviceData] = useState([])
   const [message,setMessage] = useState(false)
@@ -32,12 +42,12 @@ catch (error) {
   
   const [formData, setFormData] = useState({
     userEmail: session?.user?.email || '',
-    type: '',
-    duration: '',
-    durationUnit: '',
-    sets: '',
-    unit: '',
-    device : ''
+    type: existingType ||'',
+    duration: existingDuration ||'',
+    durationUnit: existingDurationUnit ||'',
+    sets: existingSets ||'',
+    unit: existingUnit ||'',
+    device: existingDevice ||''
   });
 
   const handleSubmit = async (e) => {
@@ -126,6 +136,8 @@ catch (error) {
               <option value="kg">Kg</option>
               <option value="g">g</option>
               <option value="lbs">lbs</option>
+              <option value="lbs">mm</option>
+              <option value="lbs">inches</option>
             </select>
           </label>
         </div>

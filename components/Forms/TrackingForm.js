@@ -24,6 +24,8 @@ function TrackingForm(
         postPumpingErectGirth: existingpostPumpingErectGirth,
         postPumpingFlacidLenght: existingpostPumpingFlacidLenght,
         postPumpingFlacidGirth: existingpostPumpingFlacidGirth,
+        erectionQuality: existingErectionQuality,
+        bodyFat:existingBodyFat,
     }) {
     const { data: session } = useSession();
     const router = useRouter()
@@ -44,6 +46,8 @@ function TrackingForm(
         postPumpingErectGirth: existingpostPumpingErectGirth || "",
         postPumpingFlacidLenght: existingpostPumpingFlacidLenght || "",
         postPumpingFlacidGirth: existingpostPumpingFlacidGirth || "",
+        erectionQuality: existingErectionQuality || "",
+        bodyFat: existingBodyFat || "",
     });
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -78,6 +82,24 @@ function TrackingForm(
             <h3 className='uppercase font-bold text-purple-500 mb-10'>Input new Data</h3>
             <div className='w-full flex items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-700 font-bold'>
                 <form onSubmit={handleSubmit}>
+                    {/* <label>
+                        Body Fat:
+                        <input
+                            type="text"
+                            name="bodyFat"
+                            value={formData.bodyFat}
+                            onChange={handleChange}
+                        />
+                    </label> */}
+                    {/* <label>
+                        Erection Quality
+                        <input
+                            type="text"
+                            name="erectionQuality"
+                            value={formData.erectionQuality}
+                            onChange={handleChange}
+                        />
+                    </label> */}
                     <label>
                         Flacid Length:
                         <input
