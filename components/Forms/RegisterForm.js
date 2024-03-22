@@ -63,7 +63,7 @@ function RegisterForm() {
         return (
             <div className="flex items-center justify-center h-screen w-full text-black">
                 <div className="shadow-lg p-5 rounded-md bg-[#ffffff] min-w-[300px] min-h-[400px]">
-                    <p className="text-purple-700 font-medium upp text-center border-b border-purple-500 py-2 my-5">Register to <span className="font-bold uppercase text-purple-500">ZENTracker</span></p>
+                    <p className="text-purple-700 font-medium upp text-center border-b border-purple-500 py-2 my-5">Register to <span className="font-bold uppercase text-purple-500">PE TRACKER</span></p>
                     <form onSubmit={handleSubmit} className="flex flex-col items-center gap-5">
                         <input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input placeholder="Username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
