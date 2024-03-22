@@ -126,10 +126,10 @@ catch (error) {
           </div>
           <label>
             <h4 className="text-purple-700 font-medium mb-2">Weight / Pressure </h4>
-            <input name="sets" onChange={handleChange} type="number" placeholder="Enter the number of sets." />
+            <input name="sets" onChange={handleChange} type="number" placeholder="Weight / Pressure" />
           </label>
           <label>
-            <h4 className="text-purple-700 font-medium mb-2">Unit</h4>
+            <h4 className="text-purple-700 font-medium mb-2">Weight / Pressure Unit</h4>
             <select name="unit" onChange={handleChange} value={formData.unit} className="w-full py-3 px-3 text-purple-700 bg-purple-200 rounded-md">
               <option value="">Select unit</option>
               <option value="hg">hg</option>
