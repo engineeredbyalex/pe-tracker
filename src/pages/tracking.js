@@ -53,7 +53,7 @@ function Tracking() {
         </div>
         <button className="py-2 px-10 w-full  rounded-md text-[#fff] bg-green-500 hover:bg-green-600 text-center cursor-pointer transition-all ease-in-out">
           <Link href="../tracking/new">
-            <p>Create New</p>
+            <p>Create new tracking data</p>
           </Link>
         </button>
         {loading ? (
@@ -64,14 +64,10 @@ function Tracking() {
               <div className="border-b border-purple-700 py-5" key={data._id}>
                 <h5 className='text-purple-700 text-center mb-2'>Date: {(new Date(data.createdAt)).toLocaleString()}</h5>
                 <div className='flex flex-col gap-5 w-full'>
-                  {/* <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">
-                    <Link href={'/tracking/edit/' + data._id}>
-                      <p>Edit</p>
-                    </Link>
-                  </button> */}
+         
                    <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-600 text-center cursor-pointer transition-all ease-in-out">
                     <Link href={'/tracking/edit/' + data._id}>
-                    View the data
+                    Edit / View the data
                     </Link>
                   </button>
                   <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-red-500 hover:bg-red-600 text-center cursor-pointer transition-all ease-in-out" onClick={() => handleDelete(data._id)}>

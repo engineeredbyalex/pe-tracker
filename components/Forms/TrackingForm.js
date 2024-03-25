@@ -236,7 +236,7 @@ function TrackingForm(
                         <div>
                             <div className="w-full mt-5 py-2 px-3 rounded-md bg-green-500 hover:bg-green-600 text-center cursor-pointer transition-all ease-in-out">
                                 <p className="text-white uppercase font-bold">
-                                    Exercise data submitted successfully
+                                    Tracking data submitted successfully
                                 </p>
                             </div>
                             <div className="w-full mt-5 py-2 px-3 rounded-md bg-black text-center cursor-pointer transition-all ease-in-out">

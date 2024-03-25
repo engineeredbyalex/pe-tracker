@@ -70,6 +70,7 @@ export default async function handle(req, res) {
 
         if (method === "PUT") {
             const {
+                _id,
                 userEmail,
                 flacidLenght,
                 flacidGirth,
@@ -89,10 +90,10 @@ export default async function handle(req, res) {
                 stretchedBPFlacid,
             } = req.body;
 
-            const { id } = req.query;
+            
 
             await TrackingData.updateOne(
-                { _id: id },
+                { _id },
                 {
                     userEmail,
                     flacidLenght,
