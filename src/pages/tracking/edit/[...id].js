@@ -37,7 +37,7 @@ export default function EditTrackingData() {
         <Layout>
             <div className="">
                 <div className='w-full text-center text-purple-500 uppercase font-bold border-b border-purple-700 py-3'>
-                    <h3>Edit your data</h3>
+                    <h3>View your data</h3>
                 </div>
                 {loading ? (
                     <p>Loading...</p>

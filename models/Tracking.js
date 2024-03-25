@@ -4,8 +4,8 @@ import { model, models, Schema } from "mongoose";
 const TrackingSchema = new Schema(
     {
         userEmail: { type: String, required: true }, 
-        flacidLenght: { type: String, required: true }, 
-        flacidGirth: { type: String, required: true },
+        flacidLenght: { type: String, }, 
+        flacidGirth: { type: String, },
         flacidBPLenght: { type: String },
         erectLenght: { type: String },
         erectGirth: { type: String },
@@ -17,6 +17,7 @@ const TrackingSchema = new Schema(
         postPumpingErectGirth: { type: String },
         postPumpingFlacidLenght: { type: String },
         postPumpingFlacidGirth: { type: String },
+        stretchedBPFlacid: { type: String },
         erectionQuality: { type: String },
         bodyFat: { type: String },
     },

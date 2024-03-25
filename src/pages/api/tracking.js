@@ -39,7 +39,10 @@ export default async function handle(req, res) {
                 postPumpingErectLenght,
                 postPumpingErectGirth,
                 postPumpingFlacidLenght,
-                postPumpingFlacidGirth
+                postPumpingFlacidGirth,
+                bodyFat,
+                erectionQuality,
+                stretchedBPFlacid,
             } = req.body;
 
             const trackingDataDoc = await TrackingData.create({
@@ -57,6 +60,9 @@ export default async function handle(req, res) {
                 postPumpingErectGirth,
                 postPumpingFlacidLenght,
                 postPumpingFlacidGirth,
+                bodyFat,
+                erectionQuality,
+                stretchedBPFlacid,
             });
 
             res.json(trackingDataDoc);
@@ -77,7 +83,10 @@ export default async function handle(req, res) {
                 postPumpingErectLenght,
                 postPumpingErectGirth,
                 postPumpingFlacidLenght,
-                postPumpingFlacidGirth
+                postPumpingFlacidGirth,
+                bodyFat,
+                erectionQuality,
+                stretchedBPFlacid,
             } = req.body;
 
             const { id } = req.query;
@@ -98,7 +107,10 @@ export default async function handle(req, res) {
                     postPumpingErectLenght,
                     postPumpingErectGirth,
                     postPumpingFlacidLenght,
-                    postPumpingFlacidGirth
+                    postPumpingFlacidGirth,
+                    bodyFat,
+                    erectionQuality,
+                    stretchedBPFlacid,
                 }
             );
 

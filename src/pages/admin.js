@@ -60,7 +60,7 @@ export default function Updates({
    
         return (
             <Layout>
-                {/* <div className="w-full flex items-center justify-center absolute top-0">
+                <div className="w-full flex items-center justify-center absolute top-0">
                 </div>
                 <div className="flex flex-col gap-5 justify-start min-h-screen lg:w-1/2 w-full">
 
@@ -113,7 +113,7 @@ export default function Updates({
                             <p className="text-white uppercase font-bold">Submit</p>
                         </button>
                     </form>
-                </div> */}
+                </div>
             </Layout>
         );
 

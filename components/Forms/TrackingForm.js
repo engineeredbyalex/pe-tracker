@@ -24,8 +24,9 @@ function TrackingForm(
         postPumpingErectGirth: existingpostPumpingErectGirth,
         postPumpingFlacidLenght: existingpostPumpingFlacidLenght,
         postPumpingFlacidGirth: existingpostPumpingFlacidGirth,
+        stretchedBPFlacid: existingStretchedBPFlacid,
         erectionQuality: existingErectionQuality,
-        bodyFat:existingBodyFat,
+        bodyFat: existingBodyFat,
     }) {
     const { data: session } = useSession();
     const router = useRouter()
@@ -46,6 +47,7 @@ function TrackingForm(
         postPumpingErectGirth: existingpostPumpingErectGirth || "",
         postPumpingFlacidLenght: existingpostPumpingFlacidLenght || "",
         postPumpingFlacidGirth: existingpostPumpingFlacidGirth || "",
+        stretchedBPFlacid: existingStretchedBPFlacid || "",
         erectionQuality: existingErectionQuality || "",
         bodyFat: existingBodyFat || "",
     });
@@ -79,10 +81,10 @@ function TrackingForm(
     return (
 
         <div className='flex items-center justify-center flex-col'>
-            <h3 className='uppercase font-bold text-purple-500 mb-10'>Input new Data</h3>
+            <h3 className='uppercase font-bold text-purple-500 mb-10'>Data Form</h3>
             <div className='w-full flex items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-700 font-bold'>
                 <form onSubmit={handleSubmit}>
-                    {/* <label>
+                    <label>
                         Body Fat:
                         <input
                             type="text"
@@ -90,8 +92,8 @@ function TrackingForm(
                             value={formData.bodyFat}
                             onChange={handleChange}
                         />
-                    </label> */}
-                    {/* <label>
+                    </label>
+                    <label>
                         Erection Quality
                         <input
                             type="text"
@@ -99,7 +101,7 @@ function TrackingForm(
                             value={formData.erectionQuality}
                             onChange={handleChange}
                         />
-                    </label> */}
+                    </label>
                     <label>
                         Flacid Length:
                         <input
@@ -124,6 +126,15 @@ function TrackingForm(
                             type="text"
                             name="flacidBPLenght"
                             value={formData.flacidBPLenght}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                       Stretched Flacid BP Length:
+                        <input
+                            type="text"
+                            name="stretchedBPFlacid"
+                            value={formData.stretchedBPFlacid}
                             onChange={handleChange}
                         />
                     </label>

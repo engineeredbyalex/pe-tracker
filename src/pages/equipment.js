@@ -91,6 +91,7 @@ export default function EquipmentPage() {
                   <option value="extender">Extender</option>
                   <option value="rings">Silicone rings</option>
                   <option value="clamp">Hard clamping</option>
+                  <option value="hanger">Hanger</option>
                   {/* Add more options as needed */}
                 </select>
               </label>

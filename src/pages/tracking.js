@@ -61,17 +61,23 @@ function Tracking() {
         ) : (
           <>
             {trackingData.map((data, index) => (
-              <div key={data._id}>
-                <p className='text-purple-700 text-center mb-2'>Date: {(new Date(data.createdAt)).toLocaleString()}</p>
+              <div className="border-b border-purple-700 py-5" key={data._id}>
+                <h5 className='text-purple-700 text-center mb-2'>Date: {(new Date(data.createdAt)).toLocaleString()}</h5>
                 <div className='flex flex-col gap-5 w-full'>
                   {/* <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-700 text-center cursor-pointer transition-all ease-in-out">
                     <Link href={'/tracking/edit/' + data._id}>
                       <p>Edit</p>
                     </Link>
                   </button> */}
+                   <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-600 text-center cursor-pointer transition-all ease-in-out">
+                    <Link href={'/tracking/edit/' + data._id}>
+                    View the data
+                    </Link>
+                  </button>
                   <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-red-500 hover:bg-red-600 text-center cursor-pointer transition-all ease-in-out" onClick={() => handleDelete(data._id)}>
                     <p>Delete</p>
                   </button>
+                 
                 </div>
               </div>
             ))}
