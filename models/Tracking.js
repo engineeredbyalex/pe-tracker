@@ -20,6 +20,7 @@ const TrackingSchema = new Schema(
         stretchedBPFlacid: { type: String },
         erectionQuality: { type: String },
         bodyFat: { type: String },
+        date:{type:String},
     },
     {
         timestamps: true

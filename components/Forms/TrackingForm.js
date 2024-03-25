@@ -27,6 +27,7 @@ function TrackingForm(
         stretchedBPFlacid: existingStretchedBPFlacid,
         erectionQuality: existingErectionQuality,
         bodyFat: existingBodyFat,
+        date: existingDate,
     }) {
     const { data: session } = useSession();
     const router = useRouter()
@@ -50,6 +51,7 @@ function TrackingForm(
         stretchedBPFlacid: existingStretchedBPFlacid || "",
         erectionQuality: existingErectionQuality || "",
         bodyFat: existingBodyFat || "",
+        date: existingDate || "",
     });
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -84,6 +86,16 @@ function TrackingForm(
             <h3 className='uppercase font-bold text-purple-500 mb-10'>Data Form</h3>
             <div className='w-full flex items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-700 font-bold'>
                 <form onSubmit={handleSubmit}>
+                    <p>Date is automatically set, but if you want to set another date you can here:</p>
+                    <label>
+                        Date:
+                        <input
+                            type="date"
+                            name="date"
+                            value={formData.date}
+                            onChange={handleChange}
+                        />
+                    </label>
                     <label>
                         Body Fat:
                         <input

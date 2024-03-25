@@ -62,7 +62,15 @@ function Tracking() {
           <>
             {trackingData.map((data, index) => (
               <div className="border-b border-purple-700 py-5" key={data._id}>
-                <h5 className='text-purple-700 text-center mb-2'>Date: {(new Date(data.createdAt)).toLocaleString()}</h5>
+                <h5 className='text-purple-700 text-center mb-2'>Date:  
+                   { data.date ? (data.date): (new Date(data.createdAt)).toLocaleString()}
+                </h5>
+                {data.erectionQuality ? (<h5 className='text-purple-700 text-center mb-2'>Erection Quality Level:
+                  <br /> {data.erectionQuality}
+                </h5>) : (null)}
+                {data.bodyFat ? (<h5 className='text-purple-700 text-center mb-2'>Body Fat :
+                  <br />{data.bodyFat} % Body Fat
+                </h5>) : (null)}
                 <div className='flex flex-col gap-5 w-full'>
          
                    <button className="w-full py-2 px-10 rounded-md text-[#fff] bg-purple-500 hover:bg-purple-600 text-center cursor-pointer transition-all ease-in-out">

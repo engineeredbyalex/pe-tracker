@@ -43,6 +43,7 @@ export default async function handle(req, res) {
                 bodyFat,
                 erectionQuality,
                 stretchedBPFlacid,
+                date,
             } = req.body;
 
             const trackingDataDoc = await TrackingData.create({
@@ -63,6 +64,7 @@ export default async function handle(req, res) {
                 bodyFat,
                 erectionQuality,
                 stretchedBPFlacid,
+                date,
             });
 
             res.json(trackingDataDoc);
@@ -88,6 +90,7 @@ export default async function handle(req, res) {
                 bodyFat,
                 erectionQuality,
                 stretchedBPFlacid,
+                date,
             } = req.body;
 
             
@@ -112,6 +115,7 @@ export default async function handle(req, res) {
                     bodyFat,
                     erectionQuality,
                     stretchedBPFlacid,
+                    date,
                 }
             );
 
