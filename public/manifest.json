@@ -9,7 +9,7 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "48x48",
       "type": "image/png",
       "purpose": "maskable any"
