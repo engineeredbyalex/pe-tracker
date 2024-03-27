@@ -85,6 +85,7 @@ function TrackingForm(
         <div className='flex items-center justify-center flex-col'>
             <h3 className='uppercase font-bold text-purple-500 mb-10'>Data Form</h3>
             <div className='w-full flex items-center justify-center bg-purple-200 px-3 py-3 rounded-md text-purple-700 font-bold'>
+                <p>Not all data forms need to be set, add just the data you want.</p>
                 <form onSubmit={handleSubmit}>
                     <p>Date is automatically set, but if you want to set another date you can here:</p>
                     <label>
